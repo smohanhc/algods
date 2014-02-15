@@ -5,26 +5,33 @@ Collection of algorithms and data structures implementations
 
 Overview
 --------
-1. Linkedlist :  
-2. Tree       : 
-3. Range Minimum Query : 
-4. Binary Heap : 
-   * Build: O(n) ?, Space: 
-5. Tree atop an Array : 
-   * Build: O(nlogn), Space: O(nlogn).
-   * Sum(i,j): O(logn), Max/Min(i,j): O(logn).
-   * Update(k,j): O(logn).  
-6. Disjoint Set Data Structure : 
-
+1. Linkedlist (C) 
+   * Supported Ops : Push, Pop, Delete, Length, Disply, GetNth, Push at end, Insert at nth. 
+2. Tree (C)       
+   * Supported Ops : Build, Random insert, Display Rree, Count Red Children.
+3. Range Minimum Query
+   * Supported Ops: Query, Update, Print.
+   * Algos : Preprocess, Query 
+    * LookupTable : O(n^2), O(1)
+    * SqrtPart     : O(n), O(sqrt(n))
+    * SparseTable  : O(nlogn), O(1)
+4. Binary Heap 
+   * Supported Ops: Heapify, FindXtrma, ExtractXtrma, Insert, Delete, IncreaseKey, DeacreaseKey,
+5. Tree atop an Array 
+   * Supported Ops: Build, Sum(i,j), Max/Min(i,j), Update(k,j).  
+6. Disjoint Set Data Structure 
+   * Supported Ops: FindSet, UnionSet, PrintGraph (in GraphViz format). 
 
 | DS		| Build	   | Space	| Query	 | Update |
 | ------------- | -------- | ---------- | ------ | ------ |
 | Linkedlist	| O(n)     |            |	 |	  |
-| Tree		|	   |            |        |        |
-| Binary Heap   |          |            |        |        |
-| Disj Set      |          |            |        |        |
-| RMQ           |          |            |        |        |
-| TreeAtopArray |          |            |        |        |
+| Tree		|	   |            | O(logn)| O(logn)|
+| Binary Heap   | O(n)     |            |        |        |
+| Disj Set      |          |            | O(alpha(n)) |        |
+| RMQ           | O(n^2/O(n) |          | O(1)/O(sqrt(n) |   'X' |
+| TreeAtopArray | O(nlogn) | O(nlogn)   | O(logn)| O(logn)|
+
+Note: The above comlexity analysis is only a rough guide to the complexity of the implemented method, but they hold only for the abstract model they are part of, and might not have the exact gaurantees on real world computers. Further the Disjoint set data structure is implemented with both path compression and union by rank, though it might not exactly have the gaurantees stated above.  
 
 TODO
 ----
