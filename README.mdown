@@ -36,8 +36,8 @@ Note: The above comlexity analysis is only a rough guide to the complexity of th
 TODO
 ----
 0. Overall
- * Create makefile.
- * Automated testing harness.
+ * ~~Create makefile.~~
+ * ~~Automated testing harness.~~
 
 1. Binary Heap
  * Fix tests, and use the new framework with new makefile.
