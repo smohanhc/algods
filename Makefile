@@ -78,7 +78,7 @@ $(BLDIR)/%.o: %.cpp $(INCDIR)/%.h
 	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -c $< $(IFLAGS) -o $@
 
 $(BLDIR)/%_gtest.o: $(TESTDIR)/%_gtest.cpp $(INCDIR)/%.h $(GTEST_HEADERS)
-	$(CPP) $(GCPPFLAGS) $(GCXXFLAGS) -c $< $(IFLAGS) -o $@
+	$(CPP) $(GCPPFLAGS) $(OPT) $(GCXXFLAGS) -c $< $(IFLAGS) -o $@
 
 %: $(BLDIR)/%_gtest.o $(BLDIR)/%.o $(INCDIR)/%.h $(GTEST_HEADERS) gtest_main.a
 	$(CPP) $(OPT) -o $@ $< $(BLDIR)/$*.o gtest_main.a $(IFLAGS) $(LDFLAGS) $(GLFLAGS)

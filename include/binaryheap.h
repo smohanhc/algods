@@ -10,7 +10,7 @@ template <class T>
 class BinaryHeap
 { 
   private:
-   unsigned int heap_size_;
+   long int heap_size_;
    std::vector<T> data_;
    //typedef typename std::vector<T>size_type heap_size_;
    void SiftUp(unsigned int node);
@@ -34,6 +34,7 @@ class BinaryHeap
    void Delete(int element); 		// Delete(element)
    void IncreaseKey(int element, const T& change);
    void DecreaseKey(int element, const T& change);
+   long get_size(){return(heap_size_);};
    //void Merge(class &Heap);
 
 };

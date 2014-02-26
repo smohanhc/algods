@@ -132,8 +132,12 @@ void BinaryHeap<T>::clear()
 
 template class BinaryHeap<int>;
 template class BinaryHeap<float>;
+template class BinaryHeap<unsigned int>;
+template class BinaryHeap<long>;
 //template class BinaryHeap<std::string>;
 
 template int BinaryHeap<int>::Heapify(std::vector<int>::iterator, std::vector<int>::iterator);
 template int BinaryHeap<float>::Heapify(std::vector<float>::iterator, std::vector<float>::iterator);
+template int BinaryHeap<unsigned int>::Heapify(std::vector<unsigned int>::iterator, std::vector<unsigned int>::iterator);
+template int BinaryHeap<long>::Heapify(std::vector<long>::iterator, std::vector<long>::iterator);
 //template int BinaryHeap<std::string>::Heapify(std::vector<std::string>::iterator, std::vector<std::string>::iterator);
