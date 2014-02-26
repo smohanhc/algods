@@ -5,23 +5,32 @@
 
 
 # GTEST FLAGS.
-GTEST_DIR = ~/sys/sw/gtest/gtest-1.7.0
+GTEST_DIR = /home/sumod/sys/sw/gtest/gtest-1.7.0
 GCPPFLAGS = -isystem $(GTEST_DIR)/include
 GCXXFLAGS = -pthread -Wextra -Wall
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 		$(GTEST_DIR)/include/gtest/internal/*.h
+GIFLAGS = -I$(GTEST_HEADERS)
+GLFLAGS = -lpthread
 
 # FLAGS
 CPP = g++
 OPT = --std=c++0x
-DBG = -g -Wall
-CPPFLAGS += $(DBG) $(OPT) $(GCPPFLAGS)
-CXXFLAGS += $(GCXXFLAGS)
-LDFLAGS = -lm 
-TESTDIR = ./test
-INCLUDEDIR = ./include
-IFLAGS = -I$(INCLUDEDIR) -I. -I$(GTEST_HEADERS)
 
+RELEASE = -c -03
+DEBUG = -c -g -D_DEBUG -Wall -Wextra
+
+CPPFLAGS += $(DEBUG) $(OPT) 
+CXXFLAGS += 
+LDFLAGS = -lm 
+IFLAGS = -I$(INCDIR) -I. 
+
+TESTDIR = ./test
+INCDIR = ./include
+BLDIR = ./build
+
+
+#########################################################################
 # Usually you shouldn't tweak such internal variables, indicated by a
 # # trailing _.
 GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h $(GTEST_HEADERS)
@@ -40,6 +49,7 @@ gtest.a : gtest-all.o
 
 gtest_main.a : gtest-all.o gtest_main.o
 		$(AR) $(ARFLAGS) $@ $^
+#########################################################################
 
 # My definitions
 PROGRAMS: rmq binaryheap disjoint_set
@@ -53,19 +63,28 @@ PROGRAMS: rmq binaryheap disjoint_set
 #SRCS = $(PROGRAMS:=.cpp)
 #TEST_SRCS = $(PROGRAMS:=_test.cpp)
 #HEADERS = $(PROGRAMS:=.h)
-#%: $(TESTDIR)/$(TEST_SRCS) $(INCLUDEDIR)/$(HEADERS) $(SRCS)
+#%: $(TESTDIR)/$(TEST_SRCS) $(INCDIR)/$(HEADERS) $(SRCS)
 #	$(CPP) $(CFLAGS) -o $@ $(SRCS) $(TESTDIR)/$(TEST_SRCS) $(IFLAGS) $(LDFLAGS)
 
 
 all: $(PROGRAMS)
 
-%: $(TESTDIR)/%_gtest.cpp $(INCLUDEDIR)/%.h $(GTEST_HEADERS)
-	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -o $@ $@.cpp $< $(IFLAGS) $(LDFLAGS)
+#Update prog: 
+#prog: 
+#debug: CFLAGS=$(DEBUG)
+#debug: prog
+
+$(BLDIR)/%.o: %.cpp $(INCDIR)/%.h
+	$(CPP) $(CPPFLAGS) $(CXXFLAGS) -c $< $(IFLAGS) -o $@
+
+$(BLDIR)/%_gtest.o: $(TESTDIR)/%_gtest.cpp $(INCDIR)/%.h $(GTEST_HEADERS)
+	$(CPP) $(GCPPFLAGS) $(GCXXFLAGS) -c $< $(IFLAGS) -o $@
+
+%: $(BLDIR)/%_gtest.o $(BLDIR)/%.o $(INCDIR)/%.h $(GTEST_HEADERS) gtest_main.a
+	$(CPP) $(OPT) -o $@ $< $(BLDIR)/$*.o gtest_main.a $(IFLAGS) $(LDFLAGS) $(GLFLAGS)
 
 clean:
 	-rm -f *.o
-#	-rm -f $(PROGRAMS)
-#	-rm -f $(OBJECTS)
 
-#tags : 
-#	ctags $(SRCS)
+tags : 
+	ctags $(SRCS)

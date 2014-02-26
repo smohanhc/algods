@@ -18,6 +18,7 @@ class BinaryHeap
 
   public: 
    BinaryHeap(unsigned int num_elements);
+   BinaryHeap();
    ~BinaryHeap(){};
    
    // Misc Operations (using STL namimg). 

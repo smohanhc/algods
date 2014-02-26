@@ -12,6 +12,12 @@ BinaryHeap<T>::BinaryHeap(unsigned int num_elements)
   data_.reserve(num_elements);
 }
 
+
+template <class T>
+BinaryHeap<T>::BinaryHeap()
+{ heap_size_ = 0;
+}
+
 template <class T>
 void BinaryHeap<T>::SiftDown(unsigned int node)
 { unsigned int lchild = 2*node+1;
