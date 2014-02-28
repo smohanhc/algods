@@ -1,42 +1,46 @@
-#ifndef BINARY_HEAP_H
-#define BINARY_HEAP_H
+// Copyright (c) 2014 Sumod K Mohan, All rights reserved.
+// Date : Feb 19, 2014
+// License : GPL V2
+//
+
+#ifndef INCLUDE_BINARYHEAP_H_
+#define INCLUDE_BINARYHEAP_H_
 
 #include <vector>
 #include <iterator>
-#include <math.h>
+#include <cmath>
 
-//Assume min heap
+// Assume min heap
 template <class T>
 class BinaryHeap
-{ 
-  private:
-   long int heap_size_;
-   std::vector<T> data_;
-   //typedef typename std::vector<T>size_type heap_size_;
-   void SiftUp(unsigned int node);
-   void SiftDown(unsigned int node);
+{
+ private:
+  unsigned long heap_size_;
+  std::vector<T> data_;
+  // typedef typename std::vector<T>size_type heap_size_;
+  void SiftUp(unsigned long node);
+  void SiftDown(unsigned long node);
 
-  public: 
-   BinaryHeap(unsigned int num_elements);
-   BinaryHeap();
-   ~BinaryHeap(){};
-   
-   // Misc Operations (using STL namimg). 
-   int count() { return heap_size_;};	//Get count of objects.
-   void clear(); 			//clear the object for reuse.
-   
-   // Main operations allowed by the data structure.
-   template <class I>
-   int Heapify(I start, I end);
-   const T FindXtrma(); 
-   const T ExtractXtrma();			
-   void Insert(const T& data); 		// Insert(key)
-   void Delete(int element); 		// Delete(element)
-   void IncreaseKey(int element, const T& change);
-   void DecreaseKey(int element, const T& change);
-   long get_size(){return(heap_size_);};
-   //void Merge(class &Heap);
+ public:
+  BinaryHeap(unsigned long num_elements);
+  BinaryHeap();
+  ~BinaryHeap() {}
 
+  // Misc Operations (using STL namimg).
+  unsigned long count() { return heap_size_;}  // Get count of objects.
+  void clear();                      // clear the object for reuse.
+
+  // Main operations allowed by the data structure.
+  template <class I>
+  int Heapify(I start, I end);
+  const T FindXtrma();
+  const T ExtractXtrma();
+  void Insert(const T& data);   // Insert(key)
+  void Delete(unsigned long element);     // Delete(element)
+  void IncreaseKey(unsigned long element, const T& change);
+  void DecreaseKey(unsigned long element, const T& change);
+  unsigned long get_size(){return(heap_size_);}
+  /* void Merge(class &Heap); */
 };
 
-#endif
+#endif  // INCLUDE_BINARYHEAP_H_

@@ -40,11 +40,12 @@ TODO
  * ~~Automated testing harness.~~
 
 1. Binary Heap
- * Fix tests, and use the new framework with new makefile.
- * Decide on whether to use int or template size
+ * ~~Fix tests, and use the new framework with new makefile.~~
+ * ~~Decide on whether to use int or template size~~
+ * ~~Bug when constuctor size and heapify sizes don't match.~~
+ * ~~Write more systematic tests for coverage of edge/corner cases.~~
  * Move range checks into an interface, to avoid penalty of range checks for public functions, when they are called from within.
  * Templated return types for error codes, return by reference or exceptions : [see here](http://stackoverflow.com/questions/3157098/whats-the-right-approach-to-return-error-codes-in-c)
- * Write more systematic tests for coverage of edge/corner cases.
  * Implement O(n) Merge.
 
 2. Tree A top an array
