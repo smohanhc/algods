@@ -7,24 +7,24 @@
 #include <algorithm>
 
 template <class T>
-BinaryHeap<T>::BinaryHeap(unsigned long num_elements)
-{ heap_size_ = num_elements;
+BinaryHeap<T>::BinaryHeap(const unsigned long& num_elements)
+{ heap_capacity_ = num_elements;
   data_.reserve(num_elements);
 }
 
 
 template <class T>
 BinaryHeap<T>::BinaryHeap()
-{ heap_size_ = 0;
+{ heap_capacity_ = 0;
 }
 
 template <class T>
-void BinaryHeap<T>::SiftDown(unsigned long node)
+void BinaryHeap<T>::SiftDown(const unsigned long& node)
 { unsigned long lchild = 2*node+1;
   unsigned long rchild = 2*node+2;
 
-  bool rexists = rchild < heap_size_;
-  bool lexists = lchild < heap_size_;
+  bool rexists = rchild < this->size();
+  bool lexists = lchild < this->size();
   if (!lexists && !rexists) return;
   bool left_small;
   if (rexists && data_[lchild] > data_[rchild])
@@ -43,7 +43,7 @@ void BinaryHeap<T>::SiftDown(unsigned long node)
 }
 
 template <class T>
-void BinaryHeap<T>::SiftUp(unsigned long node)
+void BinaryHeap<T>::SiftUp(const unsigned long& node)
 { long parent = floor(node/2)-(node+1)%2;
   bool pexists = parent >= 0;
   if (pexists && data_[parent] > data_[node])
@@ -56,16 +56,13 @@ template <class T>
 template <class I>
 int BinaryHeap<T>::Heapify(I start, I end)
 { unsigned long d = std::distance(start, end);
-  if (data_.size() != 0)
+  if (this->size() != 0)
     this->clear();
-  if (heap_size_ == 0)
-    heap_size_ = d;
-  // may be warn them.
-  if (d != heap_size_)
-    heap_size_ = d;
+  if (heap_capacity_ == 0 || d != heap_capacity_)
+    heap_capacity_ = d;
   for (I i = start; i != end; ++i)
     data_.push_back(*i);
-  for (unsigned long i = heap_size_-1; i <= heap_size_; --i)
+  for (unsigned long i = heap_capacity_-1; i <= heap_capacity_; --i)
   { SiftDown(i);
   }
   return 0;
@@ -73,7 +70,7 @@ int BinaryHeap<T>::Heapify(I start, I end)
 
 template <class T>
 const T BinaryHeap<T>::FindXtrma()
-{ if (heap_size_ <= 0)
+{ if (this->size() <= 0)
     return ((T)(0));
   return data_.front();
   // return this->data_[0];
@@ -81,12 +78,12 @@ const T BinaryHeap<T>::FindXtrma()
 
 template <class T>
 const T BinaryHeap<T>::ExtractXtrma()
-{ if (heap_size_ <= 0)
+{ if (this->size() <= 0)
     return ((T)(0));
   T max_value = data_.front();
   std::swap(data_.front(), data_.back());
   data_.pop_back();
-  --heap_size_;
+  --heap_capacity_;
   SiftDown(0);
   return max_value;
 }
@@ -94,36 +91,36 @@ const T BinaryHeap<T>::ExtractXtrma()
 template <class T>
 void BinaryHeap<T>::Insert(const T& new_node)
 { data_.push_back(new_node);
-  SiftUp(data_.size()-1);
-  ++heap_size_;
+  SiftUp(this->size()-1);
+  ++heap_capacity_;
 }
 
 template <class T>
-void BinaryHeap<T>::Delete(unsigned long element)
-{ if (element >= heap_size_)
+void BinaryHeap<T>::Delete(const unsigned long& element)
+{ if (element >= this->size())
     return;
   std::swap(data_[element], data_.back());
   data_.pop_back();
-  --heap_size_;
+  --heap_capacity_;
   SiftUp(element);
   SiftDown(element);
 }
 
 template <class T>
-void BinaryHeap<T>::IncreaseKey(unsigned long element, const T& change)
+void BinaryHeap<T>::IncreaseKey(const unsigned long& element, const T& change)
 { data_[element] = data_[element]+change;
   SiftDown(element);
 }
 
 template <class T>
-void BinaryHeap<T>::DecreaseKey(unsigned long element, const T& change)
+void BinaryHeap<T>::DecreaseKey(const unsigned long& element, const T& change)
 { data_[element] = data_[element]-change;
   SiftUp(element);
 }
 
 template <class T>
 void BinaryHeap<T>::clear()
-{ if (data_.size()  > 0)
+{ if (this->size()  > 0)
     data_.clear();
 }
 

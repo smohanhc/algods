@@ -11,23 +11,32 @@ TODO
  * ~~Bug when constuctor size and heapify sizes don't match.~~
  * ~~Write more systematic tests for coverage of edge/corner cases.~~
  * Update using review from cr.SO.com.
+  * ~~Two confusing get\_size and count functions.~~
+  * ~~Pass by reference missing.~~
+  * Use subtypes like value\_type, size\_type.
+  * Support for iterators  : (Nice to have).
+  * Support for allocators : (Nice to have) (tbb scalable allocator).
+  * Form this as a container adaptor : (Nice to have).
  * Move range checks into an interface, to avoid penalty of range checks for public functions, when they are called from within.
- * Templated return types for error codes, return by reference or exceptions : [see here](http://stackoverflow.com/questions/3157098/whats-the-right-approach-to-return-error-codes-in-c)
- * Implement O(n) Merge.
+ * Templated return types for error codes, return by reference or exceptions : (Nice to have).
+   [see here](http://stackoverflow.com/questions/3157098/whats-the-right-approach-to-return-error-codes-in-c)
+ * Implement O(n) Merge : (Nice to have).
 
 2. Tree A top an array
  * Template the code, review design.
  * Generalize it to take, index and data :
  * Implement Max and Min
+ * Write systematic tests.
+ * verify : memory, style.
 
 3. Range Minimum Query 
  * Template the code, review design.
- * Write tests. 
- * Check Style guide.
+ * Write systematic tests. 
+ * Verify : memory, style.
 
 4. Disjoint Set DS, linkedlist and Tree : 
- * Write tests.
- * Verify no memory leaks.
+ * Write systematic tests. 
+ * Verify : memory, style.
    
 
 Commit Process

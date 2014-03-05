@@ -15,20 +15,20 @@ template <class T>
 class BinaryHeap
 {
  private:
-  unsigned long heap_size_;
+  unsigned long heap_capacity_;
   std::vector<T> data_;
   // typedef typename std::vector<T>size_type heap_size_;
-  void SiftUp(unsigned long node);
-  void SiftDown(unsigned long node);
+  void SiftUp(const unsigned long& node);
+  void SiftDown(const unsigned long& node);
 
  public:
-  BinaryHeap(unsigned long num_elements);
+  BinaryHeap(const unsigned long& num_elements); //This only reserves space, size is still 0.
   BinaryHeap();
   ~BinaryHeap() {}
 
   // Misc Operations (using STL namimg).
-  unsigned long count() { return heap_size_;}  // Get count of objects.
   void clear();                      // clear the object for reuse.
+  unsigned long size(){return(data_.size());}
 
   // Main operations allowed by the data structure.
   template <class I>
@@ -36,10 +36,9 @@ class BinaryHeap
   const T FindXtrma();
   const T ExtractXtrma();
   void Insert(const T& data);   // Insert(key)
-  void Delete(unsigned long element);     // Delete(element)
-  void IncreaseKey(unsigned long element, const T& change);
-  void DecreaseKey(unsigned long element, const T& change);
-  unsigned long get_size(){return(heap_size_);}
+  void Delete(const unsigned long& element);     // Delete(element)
+  void IncreaseKey(const unsigned long& element, const T& change);
+  void DecreaseKey(const unsigned long& element, const T& change);
   /* void Merge(class &Heap); */
 };
 

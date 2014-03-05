@@ -7,7 +7,7 @@ Overview
 --------
 1. Linkedlist (C) 
    * Supported Ops : Push, Pop, Delete, Length, Disply, GetNth, Push at end, Insert at nth. 
-2. Tree (C)       
+2. Tree (C)
    * Supported Ops : Build, Random insert, Display Rree, Count Red Children.
 3. Range Minimum Query
    * Supported Ops: Query, Update, Print.
@@ -18,7 +18,7 @@ Overview
 4. Binary Heap 
    * Supported Ops: Heapify, FindXtrma, ExtractXtrma, Insert, Delete, IncreaseKey, DeacreaseKey,
 5. Tree atop an Array 
-   * Supported Ops: Build, Sum(i,j), Max/Min(i,j), Update(k,j).  
+   * Supported Ops: Build, Sum(i,j), Max/Min(i,j), Update(k,j).
 6. Disjoint Set Data Structure 
    * Supported Ops: FindSet, UnionSet, PrintGraph (in GraphViz format). 
 
@@ -31,5 +31,5 @@ Overview
 | RMQ           | O(n^2/O(n) |          | O(1)/O(sqrt(n) |   'X' |
 | TreeAtopArray | O(nlogn) | O(nlogn)   | O(logn)| O(logn)|
 
-Note: The above comlexity analysis is only a rough guide to the complexity of the implemented method, but they hold only for the abstract model they are part of, and might not have the exact gaurantees on real world computers. Further the Disjoint set data structure is implemented with both path compression and union by rank, though it might not exactly have the gaurantees stated above.  
+Note: The above comlexity analysis is only a rough guide to the complexity of the implemented method, but they hold only for the abstract model they are part of, and might not have the exact gaurantees on real world computers. Further the Disjoint set data structure is implemented with both path compression and union by rank, though it might not exactly have the gaurantees stated above.
 

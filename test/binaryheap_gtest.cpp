@@ -1,7 +1,6 @@
 // Copyright (c) 2014 Sumod K Mohan, All rights reserved.
 // Date : Feb 27, 2014
 // License : GPL V2
-//
 
 
 #include <binaryheap.h>
@@ -46,34 +45,34 @@ namespace
 
   TYPED_TEST(BHeapTest, SimpleTest)
   { EXPECT_EQ(1000, this->b1.FindXtrma());
-    EXPECT_EQ(1000, this->b1.get_size());
+    EXPECT_EQ(1000, this->b1.size());
     this->b1.Insert(3000);
     EXPECT_EQ(1000, this->b1.FindXtrma());
-    EXPECT_EQ(1001, this->b1.get_size());
+    EXPECT_EQ(1001, this->b1.size());
     this->b1.Delete(0);
     EXPECT_EQ(1001, this->b1.FindXtrma());
-    EXPECT_EQ(1000, this->b1.get_size());
+    EXPECT_EQ(1000, this->b1.size());
     this->b1.DecreaseKey(999, 1000);
     EXPECT_EQ(999, this->b1.FindXtrma());
-    EXPECT_EQ(1000, this->b1.get_size());
+    EXPECT_EQ(1000, this->b1.size());
     this->b1.IncreaseKey(0,1000);
     EXPECT_EQ(1001, this->b1.FindXtrma());
-    EXPECT_EQ(1000, this->b1.get_size());
+    EXPECT_EQ(1000, this->b1.size());
   }
 
   TYPED_TEST(BHeapTest, ComplexTest)
   { EXPECT_EQ(1000, this->b1.FindXtrma());
-    EXPECT_EQ(1000, this->b1.get_size());
+    EXPECT_EQ(1000, this->b1.size());
     for (int i = 0; i < 10; ++i)
       this->b1.ExtractXtrma();
     EXPECT_EQ(1010, this->b1.FindXtrma());
-    EXPECT_EQ(990, this->b1.get_size());
+    EXPECT_EQ(990, this->b1.size());
     for (int i = 0; i < 10; ++i)
       this->b1.ExtractXtrma();
     EXPECT_EQ(1020, this->b1.FindXtrma());
-    EXPECT_EQ(980, this->b1.get_size());
+    EXPECT_EQ(980, this->b1.size());
     this->b1.Insert(3232);
-    EXPECT_EQ(981, this->b1.get_size());
+    EXPECT_EQ(981, this->b1.size());
   }
 }  //  namespace
 
