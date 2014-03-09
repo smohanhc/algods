@@ -1,4 +1,9 @@
-#include "include/traarray.h"
+// Copyright (c) 2014 Sumod K Mohan, All rights reserved.
+// Date : Mar 8, 2014
+// License : GPL V2
+//
+
+#include <traarray.h>
 
 
 // Get the leftmost node of last layer, for given num_elements
@@ -44,7 +49,7 @@ bool PureLeftNode(unsigned int num)
 
 
 
-BITree::BITree(const unsigned int num_elements)
+TrAArray::TrAArray(const unsigned int num_elements)
 { if(num_elements==0)
     num_elements_ = 10;
   else
@@ -52,7 +57,7 @@ BITree::BITree(const unsigned int num_elements)
 }
 
 template<class I>
-int BITree::Build(I start, I end)
+int TrAArray::Build(I start, I end)
 { if(std::distance(start, end) != num_elements_)
     return -1;
   
@@ -65,7 +70,7 @@ int BITree::Build(I start, I end)
 
   int i=leftmost_node_;
   // Set the leaf nodes, 
-  for(std::vector<int>::iterator j = start; j!=end ; ++j, ++i)
+  for(std::vector<int>::iterator j = start; j != end ; ++j, ++i)
   { data_[i]=(int)*j;
     node_[*j]=(unsigned int)i;
     //node_.insert(std::pair<int,unsigned int>(*j,(unsigned int)i)); 
@@ -79,18 +84,18 @@ int BITree::Build(I start, I end)
  return 0; 
 }
 
-int BITree::Sum(const int a, const int b)
+int TrAArray::Sum(const int a, const int b)
 { int sum_a=0, sum_b=0;
   sum_a = Sum(a);
   sum_b = Sum(b);
   if(sum_a != -1 && sum_b != -1)
-  { return abs(sum_a-sum_b);
+  { return (a+abs(sum_a-sum_b));
   }
   else 
     return -1;
 }
 
-int BITree::Sum(const int a)
+int TrAArray::Sum(const int a)
 { 
   int loc, sum=0;
   
@@ -112,7 +117,7 @@ int BITree::Sum(const int a)
   return sum;
 }
 
-int BITree::Set(const int key, const int new_key)
+int TrAArray::Set(const int key, const int new_key)
 {  
   if(node_.find(key)==node_.end())
     return -1;
@@ -128,3 +133,9 @@ int BITree::Set(const int key, const int new_key)
   }
 return 0;
 }
+
+template int TrAArray::Build(std::vector<int>::iterator, std::vector<int>::iterator);
+//template int TrAArray::Build(std::vector<long>::iterator, std::vector<long>::iterator);
+//template int TrAArray::Build(std::vector<float>::iterator, std::vector<float>::iterator);
+//template int TrAArray::Build(std::vector<double>::iterator, std::vector<double>::iterator);
+

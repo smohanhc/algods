@@ -23,11 +23,14 @@ TODO
  * Implement O(n) Merge : (Nice to have).
 
 2. Tree A top an array
+ * ~~Write gtests.~~
+ * ~~Verify tests.~~
+ * Decide whether to use Sum(a,b) where a,b are range or Sum(k,j), where k,j are the keys.
+ * Decide the same for set and simplify DS design according to above choice.
  * Template the code, review design.
  * Generalize it to take, index and data :
  * Implement Max and Min
- * Write systematic tests.
- * verify : memory, style.
+ * Verify : memory, style.
 
 3. Range Minimum Query 
  * Template the code, review design.
@@ -45,5 +48,6 @@ Commit Process
 2. Verify there are no memory leaks with valgrind/memcheck.
 3. Verify that there are no heap corruption and heap usage is not abnormal with massif.
 4. Verify code is templated when possible or as per the case.
-5. Verify that Style Guide is reasonably followed.
+5. Verify that Style Guide is reasonably followed, use cpplint, deheader and include\_what\_you\_use.
+   Tip : Use cinclude2dot or Doxygen to view graphviz of large projects.
 6. Update README.

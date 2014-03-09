@@ -1,5 +1,10 @@
-#ifndef BIT_H
-#define BIT_H
+// Copyright (c) 2014 Sumod K Mohan, All rights reserved.
+// Date : Mar 8, 2014
+// License : GPL V2
+//
+
+#ifndef INCLUDE_TRAARRAY_H_
+#define INCLUDE_TRAARRAY_H_
 
 #define BITS 32
 
@@ -12,7 +17,7 @@ unsigned int LeftMostNode(unsigned int x);
 unsigned int TreeSize(unsigned int x);
 bool PureLeftNode(unsigned int num);
 
-class BITree
+class TrAArray
 { private:
     std::vector<int> data_;
     std::unordered_map<int,unsigned int> node_;
@@ -22,17 +27,17 @@ class BITree
     unsigned int tree_size_;
 
   public:
-    BITree(const unsigned int num_elements);
-    ~BITree(){};
+    TrAArray(const unsigned int num_elements);
+    ~TrAArray(){};
     template<class I>
     int Build(I start, I end);
     int Set(const int key, const int new_key);
-    int Sum(const int a);
-    int Sum(const int a, const int b);
+    int Sum(const int start);
+    int Sum(const int start, const int end);
     /*int Min(const int a, const int b);
     int Max(const int a, const int b);
     */
 };
 
 
-#endif
+#endif // INCLUDE_TRAARRAY_H_
