@@ -1,4 +1,3 @@
-
 TODO
 ----
 0. Overall
@@ -10,7 +9,7 @@ TODO
  * ~~Decide on whether to use int or template size~~
  * ~~Bug when constuctor size and heapify sizes don't match.~~
  * ~~Write more systematic tests for coverage of edge/corner cases.~~
- * Update using review from cr.SO.com.
+ * ~~Update using review from cr.SO.com.~~
   * ~~Two confusing get\_size and count functions.~~
   * ~~Pass by reference missing.~~
   * Use subtypes like value\_type, size\_type.
@@ -25,12 +24,15 @@ TODO
 2. Tree A top an array
  * ~~Write gtests.~~
  * ~~Verify tests.~~
- * Decide whether to use Sum(a,b) where a,b are range or Sum(k,j), where k,j are the keys.
- * Decide the same for set and simplify DS design according to above choice.
- * Template the code, review design.
- * Generalize it to take, index and data :
- * Implement Max and Min
+ * ~~Decide whether to use Sum(a,b) where a,b are range or Sum(k,j), where k,j are the keys.~~
+ * ~~Decide the same for set and simplify DS design according to above choice.~~
+ * ~~Template the code.~~
+ * Review the design.
+ * Write systematic tests.
  * Verify : memory, style.
+ * Generalize it to take, index and data 
+ * Implement Max and Min
+ * Add size\_type and value\_type
 
 3. Range Minimum Query 
  * Template the code, review design.
