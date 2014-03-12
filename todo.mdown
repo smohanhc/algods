@@ -28,8 +28,10 @@ TODO
  * ~~Decide the same for set and simplify DS design according to above choice.~~
  * ~~Template the code.~~
  * Review the design.
- * Write systematic tests.
- * Verify : memory, style.
+ * ~~Write systematic tests.~~
+ * ~~Verify : memory, style.~~
+   * int32/64 etc.
+   * non-const reference.
  * Generalize it to take, index and data 
  * Implement Max and Min
  * Add size\_type and value\_type
@@ -43,6 +45,12 @@ TODO
  * Write systematic tests. 
  * Verify : memory, style.
    
+5. Interval Search Tree.
+ * Add interval search tree.
+ * Add systematic gtests.
+ * Template the code.
+ * Verify : memory and style.
+ * Review Design.
 
 Commit Process
 --------------

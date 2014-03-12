@@ -24,7 +24,7 @@ namespace
      virtual void TearDown(){};
   };
 	
-  typedef ::testing::Types<int, unsigned int, long> MyTypes;
+  typedef ::testing::Types<int, unsigned int, long, float> MyTypes;
   TYPED_TEST_CASE(TraarrayTest, MyTypes);
   
   TYPED_TEST(TraarrayTest, SimpleTest)
@@ -35,6 +35,7 @@ namespace
     EXPECT_EQ(0, R.Build(v.begin(), v.end()));
     EXPECT_EQ(0, R.Sum(0));
     EXPECT_EQ(1, R.Sum(1));
+    EXPECT_EQ(1, R.Find(1));
     EXPECT_EQ(15, R.Sum(5));
     EXPECT_EQ(45, R.Sum(9));
     EXPECT_EQ(26, R.Sum(5,8));
@@ -50,6 +51,7 @@ namespace
     EXPECT_EQ(26, S.Sum(5,8));
     EXPECT_EQ(44, S.Sum(2,9));
     S.Set(0, 11);
+    EXPECT_EQ(0, S.Find(11));
     EXPECT_EQ(11, S.Sum(0,0));
     EXPECT_EQ(12, S.Sum(0,1));
     EXPECT_EQ(17, S.Sum(0,3));
