@@ -1,3 +1,9 @@
+// Copyright (c) 2014 Sumod K Mohan, All rights reserved.
+// Date : Mar 12, 2014
+// License : GPL V2
+// This implementation is heavily influenced by Pedro Felzenswalb's Disjoint Set
+// implementation, which can be found at http://cs.brown.edu/~pff/segment/
+
 #include "disjoint_set.h"
 
 #include <iostream>
@@ -18,14 +24,19 @@ Universe::Universe(long int elements)
 }
 
 Universe::~Universe()
-{ delete [] elts_;
+{ 
+  delete [] elts_;
   return ;
 }
 
 //Union two of sets such that the one of bigger rank will contain the smaller one.
 //In case they are of equal rank then increment rank by one of the randomly chosen parent.
 void Universe::UnionSet(long int x, long int y)
-{ if(elts_[x].parent == elts_[y].parent)
+{ 
+  if(x>num_elements_||y>num_elements_)
+    return;
+
+  if(elts_[x].parent == elts_[y].parent)
   return; 
 
   if(elts_[x].rank < elts_[y].rank)

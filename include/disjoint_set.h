@@ -1,5 +1,11 @@
-#ifndef MST_DISJOINT_SET_H_
-#define MST_DISJOINT_SET_H_
+// Copyright (c) 2014 Sumod K Mohan, All rights reserved.
+// Date : Mar 12, 2014
+// License : GPL V2
+// This implementation is heavily influenced by Pedro Felzenswalb's Disjoint Set
+// implementation, which can be found at http://cs.brown.edu/~pff/segment/
+
+#ifndef INCLUDE_DISJOINT_SET_H_
+#define INCLUDE_DISJOINT_SET_H_
  
 typedef struct
 { int rank;
@@ -7,18 +13,14 @@ typedef struct
   long int size;
 } Elt;
 
-// QN :
-// Why use Vector, it will change the worst case guarantees of find, union and make. Is this true ? Is there anyway I can make it more effective.
-// But then you have to allocate and deallocate.
-/* vector<elt> *elts_; */
-
 class Universe 
 { 
-  private : 
+ private : 
   Elt *elts_; 
   long int num_elements_; 
   
-  public :
+ public :
+  Universe() {}
   Universe(long int elements);
  
   ~Universe();  
@@ -31,4 +33,4 @@ class Universe
   long int get_rank(long int x) {return elts_[x].rank; };
 };  
 
-#endif //DISJOINT_SET_H_
+#endif // INCLUDE_DISJOINT_SET_H_

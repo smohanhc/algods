@@ -1,7 +1,7 @@
-algo\_ds
-========
+Algorithms and Data Structures
+==============================
 
-Collection of algorithms and data structures implementations
+A collection of algorithms and data structures implementations
 
 Overview
 --------
@@ -19,8 +19,12 @@ Overview
    * Supported Ops: Heapify, FindXtrma, ExtractXtrma, Insert, Delete, IncreaseKey, DeacreaseKey,
 5. Tree atop an Array 
    * Supported Ops: Build, Sum(i,j), Max/Min(i,j), Update(k,j).
-6. Disjoint Set Data Structure 
+6. Disjoint Set Data Structure
    * Supported Ops: FindSet, UnionSet, PrintGraph (in GraphViz format). 
+   * Heavily influenced on Pedro Felzenswalb's Disjoint Set Implementation.
+7. Interval Trees.
+   * Supported Operations : 
+   * Supports dynamic operations, with amortized rebalancing.
 
 | DS		| Build	   | Space	| Query	 | Update |
 | ------------- | -------- | ---------- | ------ | ------ |

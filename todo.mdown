@@ -42,6 +42,8 @@ TODO
  * Verify : memory, style.
 
 4. Disjoint Set DS, linkedlist and Tree : 
+ * Reimplement with STL.
+ * Handle range of data using hashmap.
  * Write systematic tests. 
  * Verify : memory, style.
    
